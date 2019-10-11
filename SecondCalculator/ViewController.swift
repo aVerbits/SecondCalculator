@@ -23,10 +23,18 @@ class ViewController: UIViewController {
             return Double(displayResaltLabel.text!)!
         }
         set {
-            displayResaltLabel.text = "\(newValue)"
+            let value = "\(newValue)"
+            let valueArray = value.components(separatedBy: ".")
+            if valueArray[1] == "0" {
+                displayResaltLabel.text = "\(valueArray[0])"
+            }else{
+                displayResaltLabel.text = "\(newValue)"
+            }
             stillTyping = false
         }
+        
     }
+    
     
     @IBAction func numberPressed(_ sender: UIButton) {
         
